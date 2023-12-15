@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+body {
+  height: 200px;
+}
+
+/* Style the links inside the navigation bar */
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: fit-content;
+  width: 100%;
+  background: url("/static/imgs/lnm.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+    overflow: hidden;
+}
+
+form {
+  width: auto; /* Adjust the width as needed */
+  align-items: center;
+  justify-content: center;
+  padding: 10%;
+  background-color: rgb(222, 215, 215);
+  border-radius: 8px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.form-box {
+  position: relative;
+  width: 70%;
+  min-height: fit-content;
+  background: transparent;
+  border: none;
+
+  border-radius: 20px;
+  backdrop-filter: blur(15px) brightness(80%);
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.inner-box {
+  width: 100%;
+  display: block;
+  overflow: auto;
+  scrollbar-width: thin;
+
+  justify-content: space-between;
+  margin: 10%;
+}
+.inner-box-scrollbar {
+  width: 10px;
+}
+
+h1 {
+  font-size: 3em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #060606;
+}
+.custom-box {
+  width: 100%;
+  min-height: fit-content;
+  background-color: white;
+  border-radius: 25px; /* Adjust as needed */
+  color: #060606;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.pending {
+  background-color: yellow; /* Set background color for Pending status */
+}
+
+.approved {
+  background-color: green; /* Set background color for Approved status */
+}
+
+.cancelled {
+  background-color: blue; /* Set background color for Cancelled status */
+}
+
+.details {
+  display: inline;
+  padding: 25px;
+}
+
+p {
+  padding: 3px;
+}
+
+
+.booking-status {
+  display: inline-block;
+  padding: 0px;
+  justify-content: flex-end;
+  height: 50%;
+}
+
+.badge {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  height: 20vh;
+}
+
+.badge-pending {
+  background-color: #ffc107;
+  color: white;
+  border-radius: 4px;
+  height: 20vh;
+  padding: 5px 10px;
+}
+
+.badge-cancelled {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 4px;
+  height: 20vh;
+  padding: 5px 10px;
+}

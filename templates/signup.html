@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width-device-width,initial-scale=1.0'>
+  <title>signup</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel='stylesheet' href='static/css/signup.css'>
+  
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+
+<script>
+  var otp;
+  function sendotp(){
+ 
+    if(document.querySelector("#email").value == ""){
+      Swal.fire({
+        title: "enter email for otp",
+        icon: "info",
+        timer: 3000,
+        showConfirmButton:false,
+      }); 
+    }
+    otp=Math.round(Math.random()*100000);
+    (function(){
+      emailjs.init("CqufgWh18QGjJN4IA"); // Account Public Key
+    })();
+
+    var params = {
+      to: document.querySelector("#email").value,
+      message: otp,
+    };
+
+    var serviceID = "service_r7n2fw4"; // Email Service ID
+    var templateID = "template_c3avzhd"; // Email Template ID
+
+    emailjs.send(serviceID, templateID, params)
+    .then( res => {
+      Swal.fire({
+        title: "email sent successfully",
+        icon: "success",
+        timer: 3000,
+        showConfirmButton:false,
+      }); 
+    })
+    .catch();
+  }
+</script>
+</head>
+
+
+
+
+  <body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action=" " method="post">
+                  {% csrf_token %}
+                    <h2>Signup</h2>
+                    <div class="inputbox"> <ion-icon name="person-outline"></ion-icon> <input type="text" name="username" id="username" required>
+                      <label>UserName</label>
+                    </div>
+                    <div class="inputbox"> <button id="generateOTP" onclick="sendotp()">generate otp</button> <input type="email" name="email" id="email"  required>
+                        <label>Email</label>
+                    </div>
+
+                    <div class="inputbox">
+                      <!-- Replace the email icon with a button -->
+                      <button type="button" onclick="verifyOTP()" id="verifyButton">Verify</button>
+                      <input type="text" name="otp" id="otp" required >
+                      <label>OTP</label>
+                    </div>
+
+
+                    <div class="inputbox"> <ion-icon name="lock-closed-outline"></ion-icon> <input type="password"
+                      name="password1" id="password1"  required> <label>Password</label> </div>
+                    <div class="inputbox"> <ion-icon name="lock-closed-outline"></ion-icon> <input type="password"
+                      name="password2" id="password2" required> <label>Confirm Password</label> </div>
+                      {% for msg in messages%}
+                      <div style="color:white">
+                      {{msg}}
+                      
+                    </div>
+                    <br>
+                      {% endfor%}
+                      
+                    <button id="formbtn" disabled>Signup</button>
+                    <div class="register">
+                        <p>Already have an account? <a href="login">Log in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section> 
+  </body>
+
+  <script>
+ 
+    document.addEventListener("DOMContentLoaded", function () {
+     
+      function verifyOTP() {
+        
+        
+        var tickIcon = document.createElement('ion-icon');
+        tickIcon.setAttribute('name', 'checkmark-outline');
+        tickIcon.style.color = '#4CAF50';
+  
+        var crossIcon = document.createElement('ion-icon');
+        crossIcon.setAttribute('name', 'close-outline');
+        crossIcon.style.color = 'red';
+  
+        
+        
+        var verifyButton = document.getElementById("verifyButton");
+        
+        var otpText=document.querySelector("#otp").value
+        if(otpText==otp){
+          verifyButton.parentNode.replaceChild(tickIcon, verifyButton);
+          document.getElementById("formbtn").disabled = false;
+        }
+        else{
+          verifyButton.parentNode.replaceChild(crossIcon, verifyButton);
+        }
+
+  
+        
+        otpText.onchange = function(){
+          var verifyButton = document.getElementById("verifyButton");
+          verifyButton.parentNode.replaceChild(verifyButton, crossIcon);
+        };
+      }
+  
+     
+      var verifyButton = document.getElementById("verifyButton");
+      verifyButton.addEventListener("click", verifyOTP);
+    });
+  </script>
+  
+
+</html>
