@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120vh;
+  width: 100%;
+  background: url("/static/imgs/lnm.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+form {
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 10% 10%;
+  border-radius: 8px;
+}
+
+.details {
+  padding: 2%;
+}
+
+h3 {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+p {
+  padding: 5px;
+}
+
+img {
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+
+.form-box {
+  position: relative;
+  width: 70%;
+  height: 80%;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  backdrop-filter: blur(15px) brightness(80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.inner-box {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  margin: 3.5%;
+}
+
+.custom-box {
+  width: 100%;
+  height: 70%;
+  background-color: rgb(254, 253, 253);
+  border-radius: 25px; /* Adjust as needed */
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  
+  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+}
+
+
+/* Your existing styles here */
+
+/* Media Query for 14-inch laptop */
+@media screen and (max-width: 14in) {
+  .form-box {
+    width: 70%;
+  }
+
+  .inner-box {
+    width: 50%;
+  }
+
+  p {
+    padding: 1px;
+  }
+
+  
+
+  .custom-box {
+    height: 60%;
+    background-color: rgb(255, 254, 254);
+  }
+
+  /* Adjust other styles as needed for the specific screen size */
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width-device-width,initial-scale=1.0'>
+  <title>Document</title>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel='stylesheet' href='static/css/mybookings.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <script src="https://kit.fontawesome.com/4612106f95.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    
+.float{
+	position:fixed;
+	width:match-content;
+	height:match-content;
+    padding:20px;
+	top:40px;
+	right:40px;
+    background-color:white; 
+	color:black;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+</style>    
+<body>
+
+    <a href="home" class="float">
+        <i class="fa-solid fa-house"></i>
+        </a>
+
+  <section>
+    <div class="form-box">
+      <div class="inner-box">
+        <h1>My Bookings</h1>
+        {% for n in servicedata %}
+        <div class="custom-box {% if n.rstatus == 'Pending' %}pending{% elif n.rstatus == 'Approved' %}approved{% elif n.rstatus == 'Cancelled' %}cancelled{% endif %}">
+            <div class="details">
+                <p>Room type:           {{n.roomtype}}</p>
+                <p>Status:              {{n.rstatus}}</p>
+                <p>No of Rooms:         {{n.noofrooms}}</p>
+                <p>Chick-in-date:       {{n.chckindate}}</p>
+                <p>Check-out-date:      {{n.chckoutdate}}</p>
+                <p>Total Cost:          {{n.tcost}}</p>
+            </div>
+            
+        </div>
+        {% endfor %}
+    </div>
+    
+      </div>
+
+
+      
+      
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+<script type = "text/javascript" >
+  function preventBack() { window.history.forward(); }
+  setTimeout("preventBack()", 0);
+  window.onunload = function () { null };
+  </script>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Lnmiit Guest House</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function lgfunc() {
+      Swal.fire({
+        title: "Have a great day",
+        icon: "success",
+        timer: 3000,
+        showConfirmButton:false,
+      }); 
+    }
+  </script>
+
+  <link rel="stylesheet" href="static/css/stylesheet.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inika&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+</head>
+  
+
+<body>
+   {% if user.is_authenticated %}
+  <div style="z-index:10; position:fixed; right:0; top:0; margin-right:35px; margin-top:45px"><button  id="logoutbtn" class="logouta"><a onclick=lgfunc() href="logoutuser">Logout</a></button></div>
+  {%endif%}
+   
+  
+  <section class="header">
+    <div id="nav">
+      <ul>
+        <li><a href="">Home</a></li>
+              <li><a href="mybookings">My Bookings</a></li>
+              <li><a href="#book">Book now</a></li>
+              {% if user.is_authenticated %}
+              <li><a href="" style="cursor:default; background-color:#3784de; color:white; border-radius:30px; padding:15px"><strong>Welcome {{request.user.username}}</strong></a></li>
+              {%endif%}
+              {% if not user.is_authenticated %}
+              <li><a href="login" class="signup-login"><strong>SignUp/Login</strong></a></li>
+              {%endif%}
+              
+              <li><a href="#fac">Gallery</a></li>
+              <li><a href="#test">Reviews</a></li>
+              <li><a href="#cntus">Contact us</a></li>
+      </ul>
+    </div> 
+    <div class="text-box">
+      <br>
+      <br>
+      <h1>The LNMIIT Guest House</h1>
+      <br>
+      <p class="home-subtext">
+        "Experience comfort and hospitality at its best at the LNMIIT Guest House, where modern amenities meet warm service,
+         creating a home away from home for travelers visiting the LNM Institute of Information Technology campus."
+      </p>
+    </div>
+  </section>
+
+  <!--bookings-->
+  <section id="book" class="booking">
+    <div class="form-box">
+        
+            <form id="indform" action="rooms" method="get">
+                <h2>Book a Room</h2>
+                <p >Discover the perfect space for you!</p>
+                <div class="inout_dates">
+                  
+                  <div class="datebox"></ion-icon> 
+                      <label><strong>Check in Date</strong></label>
+                      <input name='chkin' type="date" id="datePicker1" min="{{current_date}}" onchange="setMinCheckoutDate()" required>
+                  </div>
+                  <div class="datebox"></ion-icon> 
+                      <label><strong>Check out Date</strong></label>
+                      <input name='chkout' type="date" id="datePicker2"  required>
+                  </div>
+                  <div class="datebox">
+                    <label><strong>Purpose</strong></label>
+                    <select name='purp' id="Purpose" required>
+                        <option value="1">Guest</option>
+                        <option value="2">Placement</option>
+                        <option value="3">Fest</option>
+                    </select>
+                  </div>
+                </div>
+
+               
+                
+                <div class="text-box2">
+                  <button type="submit"><strong>Book Now</strong></button>
+                </div>
+                
+            </form>
+        
+    </div>
+</section> 
+  <!--campus gallery-->
+  
+  <section id="fac" class="facility">
+    <div class="text-box1">
+      <section class="campus">
+        <h2>
+          Gallery
+        </h2>
+        <p class="gallery-description">Explore our beautiful gallery showcasing the LNMIIT Guest House facilities and surroundings.</p>
+        
+        <div class="row">
+          <div class="campus-col">
+            <img src="/static/imgs/park2.jpg">
+            <div class="layer">
+              <h3>Park</h3>
+            </div>
+          </div>
+          <div class="campus-col">
+            <img src="/static/imgs/front1.jpg">
+            <div class="layer">
+              <h3>Entrance</h3>
+            </div>
+          </div>
+          <div class="campus-col">
+            <img src="/static/imgs/hall.jpg">
+            <div class="layer">
+              <h3>Hall</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="campus-col">
+            <img src="/static/imgs/dining.jpg">
+            <div class="layer">
+              <h3>Dinning Area</h3>
+            </div>
+          </div>
+          <div class="campus-col">
+            <img src="/static/imgs/room1.jpg">
+            <div class="layer">
+              <h3>Bedroom</h3>
+            </div>
+          </div>
+          <div class="campus-col">
+            <img src="/static/imgs/F.jpg">
+            <div class="layer">
+              <h3>Front View</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    
+  </section>
+
+   <!-- testimonial -->
+   <div id="test" class="test">
+    <h2 class="test_heading">
+      Testimonials
+    </h2>
+    <div class="row">
+
+      <div class="col-3">
+        <i class="fa fa-quote-left" aria-hidden="true"></i>
+        <p>3/5<br>An average experience of stay. Rooms are not clean. There are also some mismanagement but considering price it works.</p>
+        <img src="/static/imgs/prajit.jpeg" alt="">
+        <h3>Prajit</h3>
+      </div>
+
+      <div class="col-3">
+        <i class="fa fa-quote-left" aria-hidden="true"></i>
+        <p>4/5<br> A pleasant stay overall. Clean rooms, friendly staff, and a comfortable atmosphere. Parking space is small but works due to cost. </p>
+        <img src="/static/imgs/prajwal1.jpeg" alt="">
+        <h3>Prajwal</h3>
+      </div>
+
+      <div class="col-3">
+        <i class="fa fa-quote-left" aria-hidden="true"></i>
+        <p>5/5<br> Outstanding guest house experience! From cleanliness to attentive staff, every detail exceeded expectations. Best room for price with best location. </p>
+        <img src="/static/imgs/prakhar.jpeg" alt="">
+        <h3>Prakhar</h3>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+
+   <!-- footer -->
+   <div class="footer">
+    <div class="cont">
+      <div class="row">
+        
+        <form id="form1" method="post" name="revform">
+          {% csrf_token %}
+          <h3>Give Feedback</h3>
+          <textarea id="msg"  name="message" rows="4" required></textarea>
+
+          <button onclick=success() id="sub" type="submit">Submit Review</button>
+        </form>
+        <div id="cntus" class="f-col-4">
+          <ul>
+            <h3>Contact us</h3>
+            <li>Phone Number - 7800752003</li>
+            <li>Gmail - guesthouse@lnmiit.ac.in</li>
+            <li>Insta - guesthouse_lnmiit</li>
+            <li>Address - Near Gate 2, The LNM Institute of Information Technology, Rupa ki Nangal, Post-Sumel via Jamdoli, Jaipur, Rajasthan</li>
+          </ul>
+        </div>
+        
+      </div>
+      <hr>
+      <p class="copyright">MADE WITH LOVE</p>
+    </div>
+  </div>
+  
+  
+  
+</body>
+<script>
+
+  function success() {
+    var x = document.forms["revform"]["message"].value;
+    {% if user.is_authenticated %}
+      if (x != "") {
+        Swal.fire({
+          title: "Sent successfully",
+          icon: "success",
+          showConfirmButton:false,
+        });
+    
+      }
+      {%endif%}
+    {% if not user.is_authenticated %}
+    Swal.fire({
+      title: "please log in for feedback",
+      icon: "info",
+      showConfirmButton:false,
+    });
+    {%endif%}
+    
+    
+  }
+
+  function setMinCheckoutDate() {
+    document.getElementById("datePicker2").value = "";
+    // Get the selected check-in date
+    var checkinDate = new Date(document.getElementById('datePicker1').value);
+
+    // Set the minimum allowed checkout date to be one day more than check-in date
+    var minCheckoutDate = new Date(checkinDate);
+    minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+
+    // Format the minimum date as 'YYYY-MM-DD' for the HTML input
+    var formattedMinCheckoutDate = minCheckoutDate.toISOString().split('T')[0];
+
+    // Set the min attribute for the checkout date input
+    
+    document.getElementById('datePicker2').min = formattedMinCheckoutDate;
+}
+
+
+  {% comment %} document.getElementById("ind").addEventListener("submit",(e)=>{
+    e.preventDefault();
+    console.log(e)
+    LocalStorage.clear()
+    const a= LocalStorage.getitem("name")
+    LocalStorage.setitem(
+      "name",value )
+  }) {% endcomment %}
+</script>
+</html>

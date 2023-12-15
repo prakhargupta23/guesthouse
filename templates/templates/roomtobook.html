@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width-device-width,initial-scale=1.0'>
+  <title>Document</title>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel='stylesheet' href='static/css/rooms.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+  <section>
+    <div class="form-box">
+      <div class="inner-box">
+        
+        <div class="custom-box">
+          <form action="" method="post">
+            {% csrf_token%}
+            <!-- Display default image -->
+            <input type="hidden" name="form_id" value="semiluxury">
+
+            <div class="room">
+            <img src="/static/imgs/room1.jpg" alt="Room Image" style="max-width: 300px; max-height: 300px;">
+            
+            </div>
+        
+            <!-- Room details -->
+            <div class="details">
+              <h3 id="rname1" >{{servicedata.0.type}} Room</h3>
+          
+              <p><i class="bi bi-geo-alt"></i> City view</p>
+              <p><i class="bi bi-person"></i> Sleeps 3</p>
+              <p><i class="bi bi-wifi"></i> Free wifi</p>
+              <p><i class="bi bi-parking"></i> Free parking</p>
+              <p><i class="bi bi-bed"></i> 1 King bed</p>
+              <br>
+              <p>Price per unit: {{servicedata.0.price}}</p>
+              <br>
+              <p>No of Rooms</p>
+              <div class="counter">
+                <div class="datebox">
+                  <select name="roomcount" id="rc1" required>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                  </select>
+                </div>
+              </div>
+              <br>
+          
+              <button class="btn" type="submit">Book Now</button>
+              {% comment %} <input class="btn" type="submit" value="Submit"> {% endcomment %}
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="inner-box">
+        
+        <div class="custom-box">
+          <form action="" method="post">
+            {% csrf_token%}
+            <input type="hidden" name="form_id" value="luxury">
+            <!-- Display default image -->
+            <div class="room">
+              <img src="/static/imgs/room1.jpg" alt="Room Image" style="max-width: 300px; max-height: 300px;">
+              
+            </div>
+        
+            <!-- Room details -->
+            <div class="details">
+              <h3 id="rname2">{{servicedata.1.type}} Room</h3>
+          
+              <p><i class="bi bi-geo-alt"></i> City view</p>
+              <p><i class="bi bi-person"></i> Sleeps 3</p>
+              <p><i class="bi bi-wifi"></i> Free wifi</p>
+              <p><i class="bi bi-parking"></i> Free parking</p>
+
+              <p><i class="bi bi-bed"></i> 1 King bed</p>
+              <br>
+              <p>Price per unit: {{servicedata.1.price}}</p>
+              <br>
+              <p>No of Rooms</p>
+              <div class="counter">
+                <div class="datebox">
+                  <select name="roomcount" id="rc2" required>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                  </select>
+                </div>
+              </div>
+              <br>
+          
+              <!-- Add more details as needed -->
+          
+              <button class="btn" type="submit">Book Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>
+  {% comment %} <script src="static/imgs/script.js"></script> {% endcomment %}
+</body>
+{% comment %} <script>
+  const ele=document.getElementById("rname");
+  const title=ele.innerText;
+  document.getElementById("form1").addEventListener("submit",(e)=>{
+    e.preventDefault();
+    console.log(e)
+  })
+
+  
+</script> {% endcomment %}
+</html>
