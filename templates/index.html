@@ -15,17 +15,17 @@
       }); 
     }
   </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="static/css/stylesheet.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inika&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inika&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 </head>
   
 
@@ -33,9 +33,12 @@
    {% if user.is_authenticated %}
   <div style="z-index:10; position:fixed; right:0; top:0; margin-right:35px; margin-top:45px"><button  id="logoutbtn" class="logouta"><a onclick=lgfunc() href="logoutuser">Logout</a></button></div>
   {%endif%}
-   
+  
   
   <section class="header">
+    <div class="menu-icon">
+      <button id="mobile-menu-btn">&#9776; Menu</button>
+    </div>
     <div id="nav">
       <ul>
         <li><a href="">Home</a></li>
@@ -222,6 +225,18 @@
   
 </body>
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    var navList = document.querySelector('#nav ul');
+  
+    mobileMenuBtn.addEventListener('click', function () {
+      navList.classList.toggle('show-mobile');
+    });
+  });
+  
+</script>
+
+<script>
 
   function success() {
     var x = document.forms["revform"]["message"].value;
@@ -273,4 +288,5 @@
       "name",value )
   }) {% endcomment %}
 </script>
+
 </html>

@@ -151,69 +151,6 @@ nav .fa{
     display:none;
 }
 
-@media(max-width: 700px){
-    .text-box h1{
-        font-size: 20px;
-    }
-    .nav-links ul li{
-        display: block;
-    }
-    .nav-links{
-        position: absolute;
-        background: #f44336;
-        height: 100vh;
-        width: 200px;
-        top: 0;
-        right: -200px;
-        text-align: left;
-        z-index: 2;
-        transition: 1s;
-    }
-    nav .fa{
-        display: block;
-        color: #fff;
-        margin: 10px;
-        cursor: pointer;
-    }
-    .nav-links ul{
-        padding: 20px;
-    }
-}
-
-
-
-
-.nav-links{
-    margin-left: auto;
-    
-}
-
-.nav-links li{
-    display: inline-block;
-    margin: 0 24px;
-}
-
-.nav-links li a{
-    text-decoration: none;
-    color: #221b1b;
-    position: relative;
-}
-
-.nav-links li a::after{
-    content: '';
-    background: #ff3d00;
-    width: 0;
-    height: 3px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.25s;
-}
-
-.nav-links li a:hover::after{
-    width: 100%;
-
-}
 
 
 
@@ -325,12 +262,7 @@ h2 {
 
 
 
-@media screen and (max-width: 480px) {
-    .form-box {
-        width: 100%;
-        border-radius: 0px;
-    }
-}
+
 
 
 
@@ -659,33 +591,6 @@ ul{
 
 
 
-@media only screen and (max-width: 800px){
-
-    nav ul{
-        position: absolute;
-        top: 70px;
-        background: #333;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    nav ul li{
-        display: block;
-        margin-right: 50px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        transition: max-height 0.5s;
-    }
-
-    nav ul li a{
-        background: #fff;
-    }
-
-    .menu-icon{
-        display: block;
-        cursor: pointer;
-    }
-}
 
 
 
@@ -763,7 +668,7 @@ hr {
     text-align: center;
     color: #ccc;
 }
-
+/*scroolbar*/
 
 *::-webkit-scrollbar {
   width: 7px;
@@ -778,44 +683,168 @@ hr {
   border: 1px solid black;
 }
 
+/*media query*/
 
-
-@media only screen and (max-width: 800px){
-
-    nav ul{
-        position: absolute;
-        top: 70px;
-        background: #333;
-        width: 100%;
-        overflow: hidden;
+@media (max-width: 350px) {
+    body {
+      font-size: 10px; /* Adjust font size or other styles for smaller screens */
     }
-
-    nav ul li{
-        display: block;
-        margin-right: 50px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        transition: max-height 0.5s;
+  
+    .header {
+      padding-top: 20px; /* Adjust header padding for smaller screens */
+      width: auto;
     }
-
-    nav ul li a{
-        background: #fff;
+  
+    /* Add more styles as needed for smaller screens */
+    #nav {
+      font-size: 10px;
     }
-
-    .menu-icon{
-        display: block;
+    .text-box{
+        margin: 25px;
+        padding: 10px;
+    }
+  
+    .text-box h1 {
+        margin-top: 30px;
+        font-size: 25px; /* Adjust heading size for smaller screens */
+    }
+    .text-box p {
+        font-size: 12px; /* Adjust heading size for smaller screens */
+      }
+  
+    /* Adjust other styles as needed for smaller screens */
+    #nav ul {
+        display: none;
+      }
+    
+      /* Show the button and adjust styles */
+      .menu-icon {
+        display: inline-block;
+        text-align: left;
+        margin: 10px;
+      }
+    
+      #mobile-menu-btn {
+        background: none;
+        border: none;
+        font-size: 12px;
         cursor: pointer;
-    }
-}
-
-
-
-@media only screen and (max-width: 600px){
-    .row{
+      }
+    
+      /* Show the navigation in a block when the button is clicked */
+      #nav ul.show-mobile {
+        display: block;
         text-align: center;
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+    
+      #nav ul.show-mobile li {
+        padding: 2px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .signup-login strong {
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      /*book rook*/
+      .form-box {
+        position: relative;
+        width: 80%;
+        height: 350px;
+        background: #d7effd;
+        margin-top: 0px;
+        border: none;
+        border-radius: 20px;
+        backdrop-filter: blur(15px) brightness(40%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    
+    h2 {
+        font-size: 20px;
+        
+    }
+    
+    .form-box p{
+        text-align: center;
+        font-size: 10px;
+    }
+    
+    
+    .inout_dates{
+        display: block;
+        align-items: center;
+    }
+    
+    .datebox {
+        position: relative;
+        margin: 10px 2%;
+        width: 100px;
+        height: 30px;
+        border-bottom: 0px solid #fff;
+        display: grid;
+        color: #0a0a0a;
+        
+    }
+    
+    .personbox {
+        position: relative;
+        margin: 30px 2%;
+        width: 100px;
+        height: 60px;
+        border-bottom: 0px solid #fff;
+        display: grid;
+        color: #090909;
+        
+    }
+    
+    
+    .inputbox {
+        position: relative;
+        margin: 30px 0;
+        width: 310px;
+        border-bottom: 2px solid #fff;
+    }
+    
+    .inputbox label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        color: #fff;
+        font-size: 1em;
+        pointer-events: none;
+        transition: 0.5s;
+    }
+    /*testimonials*/
+    .row{
+        display: block;
 
     }
-    .col-2,.col-3,.col-4{
-        flex-basis: 100%;
+    .col-3{
+        margin: 20px 10px;
+        padding: 20px;
     }
+    fa.fa-quote-left {
+        font-size: 15px;
+        color: #ff523b;
+    }
+
+
+    /*gallery*/
+    .text-box1{
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    
 }
+
